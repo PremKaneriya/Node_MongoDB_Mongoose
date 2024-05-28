@@ -5,9 +5,22 @@ const listCategories = (res, req) => {
 
 const addCategory = (res, req) => {
 
+    console.log("add Category")
+}
+
+const updateCategory = (res, req) => {
+
+    console.log("update Category")
+}
+
+const deleteCategory = (res, req) => {
+
+    console.log("delete Category")
 }
 
 module.exports = {
     listCategories,
-    addCategory
+    addCategory,
+    updateCategory,
+    deleteCategory
 }

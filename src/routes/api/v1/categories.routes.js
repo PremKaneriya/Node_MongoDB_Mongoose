@@ -8,18 +8,20 @@ route.get(
     categoriesController.listCategories
 )
 
-route.post("/", (req, res) => {
-    res.send("Post Category")
-})
+route.post(
+    "/create-category",
+    categoriesController.addCategory
+)
 
-route.put("/", (req, res) => {
-    res.send("Put Category")
-})
+route.put(
+    "/update-category",
+    categoriesController.updateCategory
+)
 
-route.delete("/", (req, res) => {
-    res.send("Delete Category")
-})
-
+route.delete(
+    "/delete-category",
+    categoriesController.deleteCategory
+)
 
 
 module.exports = route
