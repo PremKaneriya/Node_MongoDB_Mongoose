@@ -1,6 +1,28 @@
-const listCategories = (res, req) => {
+const Categories = require("../models/categories.model");
 
-    console.log("list Categories")
+const listCategories = async (req, res) => {
+    try {
+        const categories = await Categories.find()
+        
+        if(!categories || categories.length === 0) {
+            return res.status(404).json({
+                success: false,
+                message: "categories not found"
+            })
+        }
+
+        res.status(200).json({
+            success: true,
+            message: "categories Fetched successfully",
+            data: categories
+        })
+
+    } catch (error) {
+        res.status(500).json({
+            success: false,
+            message: "internal server error" + error.message
+        })        
+    }
 }
 
 const addCategory = (res, req) => {
