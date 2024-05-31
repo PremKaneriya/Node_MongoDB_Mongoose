@@ -1,6 +1,6 @@
 const Subcategories = require("../models/subcategories.model")
 
-const listsubcategories = async (req, res) => {
+const listsubcategories = async (req, reschat) => {
     try {
         const subcategories = await Subcategories.find();
 

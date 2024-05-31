@@ -8,6 +8,8 @@ route.get(
     categoriesController.listCategories
 )
 
+route.get("/get-categories/:category_id", categoriesController.getCategory);
+
 route.post(
     "/create-category",
     categoriesController.addCategory
@@ -19,7 +21,7 @@ route.put(
 )
 
 route.delete(
-    "/delete-category",
+    "/delete-category/:category_id",
     categoriesController.deleteCategory
 )
 
