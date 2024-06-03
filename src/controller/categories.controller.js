@@ -2,6 +2,7 @@ const Categories = require("../models/categories.model");
 
 const listCategories = async (req, res) => {
     try {
+        console.log(req.body);
         const categories = await Categories.find()
 
         if (!categories || categories.length === 0) {
@@ -79,9 +80,38 @@ const addCategory = async (req, res) => {
 
 }
 
-const updateCategory = (res, req) => {
+const updateCategory = async (req, res) => {
+    try {
+        console.log(req.params.category_id);
 
-    console.log("update Category")
+
+        const category = await Categories.findByIdAndUpdate(req.params.category_id, req.body,{ new: true, runValidators: true });
+        if (!category) {
+            res.status(404).json({
+                message: "No categories found",
+                success: false
+            });
+        }
+        
+        if (!category) {
+            res.status(500).json({
+                message: "Internal server" + error.message,
+                success: true,
+                data: category
+            });
+        }
+        res.status(200).json({
+            message: "Category updated successfully",
+            success: true,
+            data: category
+        });
+    } catch (error) {
+        res.status(500).json({
+            message: "Internal server" + error.message,
+            success: false,
+            data: category
+        });
+    }
 }
 
 const deleteCategory = async (req, res) => {

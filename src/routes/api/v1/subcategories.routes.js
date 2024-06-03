@@ -8,19 +8,19 @@ route.get(
     subcategoriesController.listsubcategories
 )
 
-route.post(
-    "/create-subcategory",
-    subcategoriesController.addsubcategory
-)
+// route.post(
+//     "/create-subcategory",
+//     subcategoriesController.addsubcategory
+// )
 
-route.put(
-    "/update-subcategory",
-    subcategoriesController.updatesubcategory
-)
+// route.put(
+//     "/update-subcategory",
+//     subcategoriesController.updatesubcategory
+// )
 
-route.delete(
-    "/delete-subcategory",
-    subcategoriesController.deletesubcategory
-)
+// route.delete(
+//     "/delete-subcategory",
+//     subcategoriesController.deletesubcategory
+// )
 
 module.exports = route
