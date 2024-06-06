@@ -1,18 +1,13 @@
-const express = require("express")
+const express = require("express");
 
-const route = express.Router()
+const route =express.Router();
 
-const categoryRouter = require("./categories.routes")
+const courseRouter=require("./course.routes");
+const studentsRouter=require("./students.routes");
+const subcourseRouter=require("./subcourse.routes");
 
-const subcategoryrouter = require("./subcategories.routes")
+route.use("/students",studentsRouter);
+route.use("/courses",courseRouter);
+route.use("/subcourses",subcourseRouter);
 
-const productRouter = require("./products.routes")
-
-route.use("/categories", categoryRouter)
-
-route.use("/subcategories", subcategoryrouter)
-
-route.use("/products", productRouter)
-
-module.exports = route
-
+module.exports=route;
