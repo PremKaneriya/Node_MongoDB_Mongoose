@@ -15,9 +15,11 @@ const categoriesSchema = new mongoose.Schema(
             lowercase: true,
             required: true
         },
-        image: {
-            type: String,
-            trim: true
+        cat_img: {
+            type: {
+                type: String,
+                trim: true
+            }
         },
         isActive: {
             type: Boolean,
@@ -30,6 +32,6 @@ const categoriesSchema = new mongoose.Schema(
     }
 )
 
-const Categories = mongoose.model("Categories", categoriesSchema) 
+const Categories = mongoose.model("Categories", categoriesSchema)
 
 module.exports = Categories
